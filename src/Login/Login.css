@@ -1,0 +1,19 @@
+.login > img {
+  width: 450px;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login > button {
+  width: 250px;
+  background-color: #f54748;
+  border: none;
+  padding: 4px;
+  color: white;
+  cursor: pointer;
+}

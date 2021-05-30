@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { auth, provider } from "./firebase";
+import Login from "./Login/Login";
 
-function App() {
+const App = () => {
+  const [user, setUser] = useState([]);
+
+  const login = () => {
+    auth.signInWithPopup(provider).then((res) => setUser(res.user));
+  };
+
+  console.log(user);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {user.email ? (
+        <>
+          <h1>I AM LOGGED IN</h1>
+          {user.displayName}
+        </>
+      ) : (
+        <Login
+          img="https://i.pinimg.com/originals/a6/06/25/a60625748a61e88e4ae17d53bc286910.png"
+          loginFunction={login}
+        />
+      )}
     </div>
   );
-}
+};
 
 export default App;
