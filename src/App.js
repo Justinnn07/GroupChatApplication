@@ -3,6 +3,7 @@ import "./App.css";
 import Chat from "./Chat/Chat";
 import { auth, provider } from "./firebase";
 import Login from "./Login/Login";
+import Message from "./Message/Message";
 
 const App = () => {
   const [user, setUser] = useState([]);
@@ -17,7 +18,8 @@ const App = () => {
     <div>
       {user.email ? (
         <>
-          <Chat />
+          <Chat avatar={user.photoURL} username={user.displayName} />
+          <Message />
         </>
       ) : (
         <Login

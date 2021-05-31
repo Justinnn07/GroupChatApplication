@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { db } from "../firebase";
 
-const Chat = () => {
+const Chat = ({ username, avatar }) => {
   const [message, setMessage] = useState("");
 
   const onMessageInputChange = (e) => {
@@ -11,6 +11,8 @@ const Chat = () => {
   const messageAddToDb = () => {
     db.collection("messages").add({
       message: message,
+      username: username,
+      avatar: avatar,
     });
     setMessage("");
   };
