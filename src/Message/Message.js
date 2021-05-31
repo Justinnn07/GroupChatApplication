@@ -5,18 +5,26 @@ import "./Message.css";
 const Message = () => {
   const [messageData, setMessageData] = useState([]);
   useEffect(() => {
-    db.collection("messages").onSnapshot((snapshot) =>
-      snapshot.docs.map((data) => setMessageData(data.data()))
-    );
+    db.collection("messages")
+      .orderBy("timestamp")
+      .onSnapshot((snapshot) => {
+        setMessageData(snapshot.docs.map((data) => data.data()));
+      });
   }, []);
 
   console.log(messageData);
 
   return (
     <div className="message">
-      <img src={messageData.avatar} alt="" style={{ borderRadius: "50%" }} />
-      <h4>{messageData.username}</h4>
-      <p>{messageData.message}</p>
+      {messageData?.map((message) => {
+        return (
+          <div className="flex">
+            <img src={message.avatar} alt="" style={{ borderRadius: "50%" }} />
+            <h4>{message.username}</h4>
+            <p>{message.message}</p>
+          </div>
+        );
+      })}
     </div>
   );
 };
