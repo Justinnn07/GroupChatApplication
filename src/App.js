@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import Chat from "./Chat/Chat";
 import { auth, provider } from "./firebase";
 import Login from "./Login/Login";
 
@@ -7,17 +8,16 @@ const App = () => {
   const [user, setUser] = useState([]);
 
   const login = () => {
-    auth.signInWithPopup(provider).then((res) => setUser(res.user));
+    auth
+      .signInWithPopup(provider)
+      .then((res) => localStorage.setItem("user", setUser(res.user)));
   };
-
-  console.log(user);
 
   return (
     <div>
       {user.email ? (
         <>
-          <h1>I AM LOGGED IN</h1>
-          {user.displayName}
+          <Chat />
         </>
       ) : (
         <Login
