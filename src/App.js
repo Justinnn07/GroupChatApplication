@@ -15,10 +15,10 @@ const App = () => {
   };
 
   return (
-    <div>
-      {user.email ? (
+    <div className="app">
+      {user?.email ? (
         <>
-          <Chat avatar={user.photoURL} username={user.displayName} />
+          <Chat avatar={user?.photoURL} username={user?.displayName} />
           <Message />
         </>
       ) : (

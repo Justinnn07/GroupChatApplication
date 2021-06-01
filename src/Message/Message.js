@@ -20,8 +20,8 @@ const Message = () => {
         return (
           <div className="flex">
             <img src={message.avatar} alt="" style={{ borderRadius: "50%" }} />
-            <h4>{message.username}</h4>
-            <p>{message.message}</p>
+            <h4 style={{ color: "white" }}>{message.username}</h4>
+            <p style={{ color: "white" }}>{message.message}</p>
           </div>
         );
       })}
