@@ -1,0 +1,48 @@
+.leftBox {
+  width: 30%;
+  height: 100%;
+  border: 2px solid;
+}
+.topHeaderRow {
+  width: 100%;
+  min-height: 7vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+.leftboxicons {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.icon:hover {
+  cursor: pointer;
+  background-color: lightgray;
+  border-radius: 50%;
+}
+.middleHeaderRow {
+  width: 100%;
+  min-height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid lightgray;
+}
+.inputbarbox {
+  width: 95%;
+  height: 4vh;
+  background-color: lightgrey;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.inputbar {
+  width: 90%;
+  outline: none;
+  text-decoration: none;
+}
+.Userinfosbox {
+  width: 100%;
+  min-height: 78vh;
+}

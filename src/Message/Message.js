@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../firebase";
 import "./Message.css";
+import { db } from "../firebase";
+import { Avatar } from "@material-ui/core";
 
-const Message = () => {
+const Message = (props) => {
   const [messageData, setMessageData] = useState([]);
   useEffect(() => {
     db.collection("messages")
@@ -12,21 +13,26 @@ const Message = () => {
       });
   }, []);
 
-  console.log(messageData);
-
   return (
-    <div className="message">
-      {messageData?.map((message) => {
+    <div>
+      {messageData.map((message) => {
         return (
-          <div className="flex">
-            <img src={message.avatar} alt="" style={{ borderRadius: "50%" }} />
-            <h4 style={{ color: "white" }}>{message.username}</h4>
-            <p style={{ color: "white" }}>{message.message}</p>
-          </div>
+          <>
+            <Avatar src={message.avatar} style={{ margin: 10 }} />
+            <div
+              className={
+                message.username === props.username
+                  ? "messages sender"
+                  : "messages"
+              }
+            >
+              <h6>{message.username}</h6>
+              <p>{message.message}</p>
+            </div>
+          </>
         );
       })}
     </div>
   );
 };
-
 export default Message;
