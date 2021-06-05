@@ -1,5 +1,5 @@
 .login > img {
-  width: 450px;
+  width: 340px;
 }
 
 .login {
@@ -7,13 +7,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 70vh;
 }
 
 .login > button {
-  width: 250px;
-  background-color: #f54748;
-  border: none;
-  padding: 4px;
-  color: white;
-  cursor: pointer;
+  width: 150px;
 }
